@@ -28,7 +28,7 @@ const handleMail = async(req,res,next)=>{
             from: sender,
             to: email,
             subject: 'Welcome to ModeUI',
-            html: `<img src='${logo}'/><br/>
+            html: `<img src='https://firebasestorage.googleapis.com/v0/b/shopyecommerce-e73af.appspot.com/o/DigilabsLogo%2F04b251f1-f74f-4ff0-b804-ce8ad27fee7f?alt=media&token=d41ccb87-d5f8-4ecf-99c4-49ec5fadcbc5'/><br/>
             <h1> Thank you for subscribing you will get notified!</h1>             
             <a href='www.google.com'>
             Google</a>
