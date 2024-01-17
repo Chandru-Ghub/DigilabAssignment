@@ -12,17 +12,35 @@ const getSubscribers = async (req,res)=>{
         }
 }
 
-const addSubscribers = async (req,res)=>{
+// Add new subscribers!
+
+const addSubscribers = async (req,res,next)=>{
 
     const email  =req.body
     try {
+
+        const check = await subscribers.findOne(email)
+        if(check) return res.status(200).send('You already subscribed!!')
         const newSubs = new subscribers(email)
         await newSubs.save()
         res.status(201).json(newSubs)
+        next()
     } catch (error) {
         console.log(error)
         res.send(error)
     }
 }
 
-module.exports = {addSubscribers,getSubscribers}
+// Delete subscribers!
+
+const deletesubscribers = async(req,res)=>{
+    const id = req.params.id
+    try {
+        const del = await subscribers.findByIdAndDelete({_id:id})
+        res.status(200).send('Subscription has been deleted!')
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = {addSubscribers,getSubscribers,deletesubscribers}

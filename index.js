@@ -12,7 +12,7 @@ const adminRoute = require('./Router/admin.Router')
 app.use(cors())
 app.use(express.json())
 
-// subscribers endpoint
+// API endpoint
 app.use('/api',subsRoute)
 app.use('/api',authRoute)
 app.use('/api',adminRoute)

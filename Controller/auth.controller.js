@@ -28,7 +28,6 @@ const signup = async(req,res)=>{
 
 const signIn = async(req,res)=>{
     const{username,password} = req.body
-    console.log(req.body)
     try{
         // Check username exists or not
         const user = await userAuth.findOne({username})
