@@ -17,6 +17,10 @@ app.use('/api',subsRoute)
 app.use('/api',authRoute)
 app.use('/api',adminRoute)
 
+// landing page 
+app.get('/',(req,res)=>{
+    res.send("Welcome to Mode UI....")
+})
 
 // Creating server using express JS
 app.listen(port,(err)=>{
